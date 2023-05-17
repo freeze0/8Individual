@@ -12,10 +12,16 @@ with open("7 - 1.csv", encoding='utf-8') as file:
     file_reader = csv.reader(file, delimiter=",")
 
     header = next(file_reader)
-    end_index = header.index('Завершено')
-    B1_index = header.index('В. 1 /1,00')
-    B2_index = header.index('В. 2 /1,00')
-    B3_index = header.index('В. 3 /1,00')
+    try:
+        end_index = header.index('Завершено')
+        B1_index = header.index('В. 1 /1,00')
+        B2_index = header.index('В. 2 /1,00')
+        B3_index = header.index('В. 3 /1,00')
+    except ValueError:
+        end_index = header.index('Завершено')
+        B1_index = header.index('В. 1 /10,00')
+        B2_index = header.index('В. 2 /10,00')
+        B3_index = header.index('В. 3 /10,00')
     B12_count = 0
     B3_count = 0
 
